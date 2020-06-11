@@ -1,12 +1,14 @@
 import {join} from 'path';
 import express from 'express';
 
+import rootDir from '../utils/path';
+
 const router = express.Router();
 
 // We are don't call the next function, 
 // so we don't go to the next middleware
 router.get('/add-product', (_, res) => {
-  res.sendFile(join(__dirname, '../', 'views', 'add-product.html'));
+  res.sendFile(join(rootDir, 'views', 'add-product.html'));
 });
 
 router.post('/add-product', (req, res) => {

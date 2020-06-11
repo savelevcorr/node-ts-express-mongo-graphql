@@ -2,7 +2,7 @@
   "name": "ts-express-project",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "main": "src/app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "mkdir -p dist/views && ncp src/views/shop.html dist/views/shop.html && ncp src/views/add-product.html dist/views/add-product.html && tsc --watch",
