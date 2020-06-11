@@ -1,10 +1,11 @@
+import {join} from 'path';
 import express from 'express';
 
 const router = express.Router();
 
 // Root route
 router.get('/', (_, res) =>{
-  res.send('<h1>Hello from Express!</h1>');
+  res.sendFile(join(__dirname, '../', 'views', 'shop.html'));
 })
 
 export default router;
