@@ -12,7 +12,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Admin routes
-app.use(adminRoutes);
+app.use('/admin', adminRoutes);
 
 // Shop routes
 app.use(shopRoutes);
