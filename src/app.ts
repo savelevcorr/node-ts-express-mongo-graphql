@@ -1,18 +1,20 @@
 import express from 'express';
+import bodyParser from 'body-parser';
+
+import adminRoutes from './routes/admin';
+import shopRoutes from './routes/shop';
 
 const app = express();
 
 // All middlewares are executes from top to bottom
 
-// We are don't call the next function, 
-// so we don't go to the next middleware
-app.use('/add-product', (_, res) => {
-  res.send('<h1>The "Add Product" page</h1>')
-})
+// Automaticaly call the next function in the end;
+app.use(bodyParser.urlencoded({extended: false}));
 
-app.use('/', (_, res) =>{
-  console.log('In an another middleware');
-  res.send('<h1>Middleware header</h1>');
-})
+// Admin routes
+app.use(adminRoutes);
+
+// Shop routes
+app.use(shopRoutes);
 
  app.listen(3001);
