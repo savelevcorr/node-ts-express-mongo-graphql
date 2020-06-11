@@ -1,8 +1,6 @@
-import http, {Server} from "http";
 import express from 'express';
 
 const app = express();
-let server: Server;
 
 app.use((res, req, next) => {
   console.log('In the middleware!');
