@@ -17,4 +17,10 @@ app.use(adminRoutes);
 // Shop routes
 app.use(shopRoutes);
 
+// 404 route
+app.use((_, res) => {
+  res.status(404)
+  .send('<h1>Page Not Found</h1>');
+});
+
  app.listen(3001);
