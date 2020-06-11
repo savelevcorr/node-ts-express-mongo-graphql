@@ -11,8 +11,6 @@ import fs from "fs";
 function rqListener(req: IncomingMessage, res: ServerResponse): void {
   const { url, method } = req;
   let body: any[] = [];
-  let parsedBodu: string;
-  let message: string;
 
   if (url === "/") {
     res.setHeader("Contnet-Type", "text/html");
@@ -33,9 +31,9 @@ function rqListener(req: IncomingMessage, res: ServerResponse): void {
       body.push(data);
     });
     req.on("end", () => {
-      parsedBodu = Buffer.concat(body).toString();
-      message = parsedBodu.split("=")[1];
-
+      const parsedBodu = Buffer.concat(body).toString();
+      const message = parsedBodu.split("=")[0];
+      
       fs.writeFile("message.txt", message, (error) => {
         if (!error) {
           res.statusCode = 302;

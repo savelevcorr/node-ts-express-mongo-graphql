@@ -1,6 +1,17 @@
-import http, { IncomingMessage, ServerResponse } from "http";
+import http, {Server} from "http";
+import express from 'express';
 
-import rqListener from "./routes";
+const app = express();
+let server: Server;
 
-const server = http.createServer(rqListener);
-server.listen(3001);
+app.use((res, req, next) => {
+  console.log('In the middleware!');
+  next();
+});
+
+app.use((req, res, next) =>{
+  console.log('In an another middleware');
+  res.send('<h1>Middleware header</h1>');
+})
+
+ app.listen(3001);
