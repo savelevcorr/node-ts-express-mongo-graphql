@@ -1,4 +1,4 @@
-import express, {Response} from 'express';
+import express, {Response, static as staticMiddleware} from 'express';
 import bodyParser from 'body-parser';
 
 import adminRoutes from './routes/admin';
@@ -10,8 +10,10 @@ const app = express();
 
 // All middlewares are executes from top to bottom
 
-// Automaticaly call the next function in the end;
+// Automatically call the next function in the end;
 app.use(bodyParser.urlencoded({extended: false}));
+// serving static files
+app.use(staticMiddleware(join(rootDir, 'public')))
 
 // Admin routes
 app.use('/admin', adminRoutes);
