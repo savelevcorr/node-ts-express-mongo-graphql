@@ -1,5 +1,6 @@
 import express, {Response, static as staticMiddleware} from 'express';
 import bodyParser from 'body-parser';
+import http, {Server} from 'http';
 
 import adminRoutes from './routes/admin';
 import shopRoutes from './routes/shop';
@@ -7,6 +8,8 @@ import { join } from "path";
 import rootDir from "./utils/path";
 
 const app = express();
+const PORT = 8080;
+let httpServer: Server;
 
 // All middlewares are executes from top to bottom
 
@@ -27,4 +30,8 @@ app.use((_, res: Response) => {
   .sendFile(join(rootDir, 'views', '404.html'));
 });
 
-app.listen(3001);
+httpServer = http.createServer(app);
+
+httpServer.listen(PORT, () => {
+  console.log('HTTP Server is running on port', PORT);
+});
