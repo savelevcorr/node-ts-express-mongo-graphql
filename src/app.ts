@@ -11,6 +11,12 @@ const app = express();
 const PORT = 8080;
 let httpServer: Server;
 
+// Set html template engine
+app.set('view engine', 'pug');
+
+// Specify the directory where is the view's files
+app.set('views', 'views');
+
 // All middlewares are executes from top to bottom
 
 // Automatically call the next function in the end;
