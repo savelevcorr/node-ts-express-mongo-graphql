@@ -15,7 +15,7 @@ let httpServer: Server;
 app.set('view engine', 'pug');
 
 // Specify the directory where is the view's files
-app.set('views', 'views');
+app.set('views', join(rootDir, 'views'));
 
 // All middlewares are executes from top to bottom
 
