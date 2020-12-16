@@ -1,24 +1,22 @@
-import {join} from 'path';
-import express from 'express';
+import express from "express";
 
-import {Products} from "../types/Products";
-import rootDir from '../utils/path';
+import { Products } from "../types/Products";
 
 const router = express.Router();
 const products: Products = [];
 
 // We are don't call the next function, 
 // so we don't go to the next middleware
-router.get('/add-product', (_, res) => {
-  res.sendFile(join(rootDir, 'views', 'add-product.html'));
+router.get("/add-product", (_, res) => {
+  res.render("add-product", { docTitle: "Add Product" });
 });
 
-router.post('/add-product', (req, res) => {
+router.post("/add-product", (req, res) => {
   products.push({
     title: req.body.title
   });
 
-  res.redirect('/')
+  res.redirect("/");
 });
 
 export {
