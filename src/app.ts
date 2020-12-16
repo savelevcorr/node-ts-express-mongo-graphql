@@ -2,7 +2,7 @@ import express, {Response, static as staticMiddleware} from 'express';
 import bodyParser from 'body-parser';
 import http, {Server} from 'http';
 
-import getPort from "./utils/get-port";
+import port from "./utils/get-port";
 import adminRoutes, { products } from "./routes/admin";
 import shopRoutes from './routes/shop';
 import { join } from "path";
@@ -21,6 +21,7 @@ app.set('views', join(rootDir, 'views'));
 
 // Automatically call the next function in the end;
 app.use(bodyParser.urlencoded({extended: false}));
+
 // serving static files
 app.use(staticMiddleware(join(rootDir, 'public')))
 
@@ -37,6 +38,6 @@ app.use((_, res: Response) => {
 
 httpServer = http.createServer(app);
 
-httpServer.listen(getPort(), () => {
-  console.log('HTTP Server is running on port', getPort());
+httpServer.listen(port, () => {
+  console.log('HTTP Server is running on port', port);
 });
