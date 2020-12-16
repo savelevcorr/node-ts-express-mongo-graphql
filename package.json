@@ -6,13 +6,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "mkdir -p dist/views && ncp src/views/shop.html dist/views/shop.html && ncp src/views/add-product.html dist/views/add-product.html && tsc --watch",
-    "dev": "nodemon"
+    "dev": "gulp"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/express": "^4.17.6",
     "@types/node": "^13.11.1",
+    "del": "^6.0.0",
+    "gulp-typescript": "^6.0.0-alpha.1",
     "ncp": "^2.0.0",
     "nodemon": "^2.0.4",
     "ts-node": "^8.10.2"
@@ -23,6 +25,8 @@
     "express": "^4.17.1",
     "express-handlebars": "^5.2.0",
     "global": "^4.4.0",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
     "node-ts": "^5.0.6",
     "pug": "^3.0.0",
     "typescript": "^3.9.5"
