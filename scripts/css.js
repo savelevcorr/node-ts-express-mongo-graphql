@@ -1,11 +1,11 @@
-const { src, dest } = require("gulp");
-const { CSS_SRC_FILES, DEST_FOLDER } = require("../utils/constants");
-const isProduction = require("../utils/isProduction");
 const cssOptimizer = require("gulp-csso");
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
 const gulpIf = require('gulp-if');
+const { src, dest } = require("gulp");
 
+const { CSS_SRC_FILES, DEST_FOLDER } = require("../utils/constants");
+const isProduction = require("../utils/isProduction");
 
 const css = () => src([CSS_SRC_FILES])
   // if not in production mode
