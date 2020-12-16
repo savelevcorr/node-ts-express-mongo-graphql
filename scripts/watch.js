@@ -4,10 +4,12 @@ const buildTs = require("./build-ts");
 const copy = require("./copy");
 const css = require('./css');
 
+const getWatchConfig = () => ({ events: 'all' });
+
 const watchFiles = () => {
-  watch(TS_SRC_FILES, buildTs);
-  watch(PUG_SRC_FILES, copy);
-  watch(CSS_SRC_FILES, css)
+  watch(TS_SRC_FILES, getWatchConfig(), buildTs);
+  watch(PUG_SRC_FILES, getWatchConfig(), copy);
+  watch(CSS_SRC_FILES, getWatchConfig(), css)
 };
 
 module.exports = watchFiles;
