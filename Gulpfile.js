@@ -1,6 +1,7 @@
 const { series, parallel } = require("gulp");
-const clean = require("./scripts/clean");
-const css = require('./scripts/css');
 const buildTs = require("./scripts/build-ts");
+const clean = require("./scripts/clean");
+const copy = require("./scripts/copy");
+const css = require('./scripts/css');
 
-exports.default = series(clean, parallel(buildTs, css));
+exports.default = series(clean, parallel(buildTs, css, copy));
