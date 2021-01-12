@@ -1,33 +1,27 @@
-doctype html
-head
-    meta(charset='UTF-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    meta(http-equiv='X-UA-Compatible' content='ie=edge')
-    title #{docTitle}
-    link(rel='stylesheet' href='/css/main.css')
-    link(rel='stylesheet' href='/css/product.css')
-header.main-header
-    nav.main-header__nav
-        ul.main-header__item-list
-            li.main-header__item
-                a.active(href='/') Shop
-            li.main-header__item
-                a(href='/admin/add-product') Add Product
-main
-    h1(style="text-align: center") My Products
+extends layouts/main-layout
 
-    if products.length > 0
-        div.grid
-            each product in products
-                article.card.product-item
-                    header.card__header
-                        h1.product__title #{product.title}
-                    figure.card__image
-                        img(src="https://cdn.pixabay.com/photo/2015/11/19/21/10/knowledge-1052010_960_720.jpg" alt="A book picture")
-                    div.card__content
-                        p.product__price $19
-                        p.product__description Awesome book about everything!
-                    div.card__actions
-                        button.btn Add to Cart
-    else
-        h2(style="text-align: center") No Products
+block title
+    title #{docTitle}
+
+block styles
+    link(rel='stylesheet' href='/css/product.css')
+
+block content
+    main
+        h1(style="text-align: center") My Products
+
+        if products.length > 0
+            div.grid
+              each product in products
+                  article.card.product-item
+                      header.card__header
+                          h1.product__title #{product.title}
+                      figure.card__image
+                          img(src="https://cdn.pixabay.com/photo/2015/11/19/21/10/knowledge-1052010_960_720.jpg" alt="A book picture")
+                      div.card__content
+                          p.product__price $19
+                          p.product__description Awesome book about everything!
+                      div.card__actions
+                          button.btn Add to Cart
+        else
+            h2(style="text-align: center") No Products
