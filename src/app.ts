@@ -12,7 +12,7 @@ const app = express();
 let httpServer: Server;
 
 // Set html template engine
-app.set('view engine', 'pug');
+app.set('view engine', 'ejs');
 
 // Specify the directory where is the view's files
 app.set('views', join(rootDir, 'views'));
