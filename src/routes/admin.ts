@@ -4,14 +4,15 @@ import { Products } from "../types/Products";
 
 const router = express.Router();
 const products: Products = [];
+const PATH = "/add-product";
 
 // We are don't call the next function, 
 // so we don't go to the next middleware
-router.get("/add-product", (_, res) => {
-  res.render("add-product", { docTitle: "Add Product" });
+router.get(PATH, (_, res) => {
+  res.render("add-product", { docTitle: "Add Product", path: PATH });
 });
 
-router.post("/add-product", (req, res) => {
+router.post(PATH, (req, res) => {
   products.push({
     title: req.body.title
   });
