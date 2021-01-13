@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><%= docTitle %>></title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+<header class="main-header">
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <li class="main-header__item"><a class="active" href="/">Shop</a></li>
+            <li class="main-header__item"><a href="/admin/add-product">Add Product</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <h1 style="text-align: center">My Products</h1>
+
+    <% if (products.length > 0) {%>
+        <div class="grid">
+            <% for (product of products) { %>
+                <article class="card product-item">
+                    <header class="card__header">
+                        <h2 class="product__title"><%= product.title %></h2>
+                        <figure class="card__image">
+                            <img src="https://cdn.pixabay.com/photo/2015/11/19/21/10/knowledge-1052010_960_720.jpg" alt="A book picture">
+                        </figure>
+                        <div class="card__content">
+                            <p class="product__price">$19.00</p>
+                            <p class="product__description">Awesome book about everything</p>
+                        </div>
+                        <div class="card__actions">
+                            <button class="btn">Add to Cart</button>
+                        </div>
+                    </header>
+                </article>
+            <%}%>
+        </div>
+    <%} else {%>
+        <h2 style="text-align: center">No Products</h2>
+    <%}%>
+</main>
+</body>
+</html>

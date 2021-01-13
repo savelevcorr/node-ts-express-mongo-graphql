@@ -5,8 +5,9 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><%= docTitle %></title>
+    <title><%= docTitle %>></title>
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/forms.css">
 </head>
 <body>
 <header class="main-header">
@@ -23,7 +24,15 @@
 </header>
 
 <main>
-    <h1>Page not Found</h1>
+    <h1 style="text-align: center">Add Product</h1>
+    <form class="product-form" action="/admin/add-product" method="POST">
+        <div class="form-control">
+            <label for="title">Title</label>
+            <input id="title" name="title" type="text" required />
+        </div>
+
+        <button class="btn">Add Product</button>
+    </form>
 </main>
 </body>
 </html>
